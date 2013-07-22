@@ -1,21 +1,22 @@
 Meteor.Router.add({
     '/': function() {
-        Session.set("current_page", 'home');
-        return 'home';
+        var page = (Meteor.user() ? 'dashboard' : 'home');
+        Session.set("currentPage", page);
+        return page;
     },
 
     '/static_pages/:page': function(page) {
-        Session.set("current_page", page);
+        Session.set("currentPage", page);
         return page;
     },
 
     '/login': function() {
-        Session.set("current_page", 'login');
+        Session.set("currentPage", 'login');
         return 'login';
     },
 
     '/signup': function() {
-        Session.set("current_page", 'signup');
+        Session.set("currentPage", 'signup');
         return 'signup';
     },
 
@@ -31,25 +32,56 @@ Meteor.Router.add({
     },
 
     '/reset-password': function() {
-        Session.set("current_page", 'recover_email');
+        Session.set("currentPage", 'recover_email');
         return 'recover_email';
     },
 
     '/reset-password/:token': function(token) {
         Session.set("resetPassword", token);
-        Session.set("current_page", 'password_update');
+        Session.set("currentPage", 'password_update');
         return 'password_update';
     },
 
     '/users/:id': function(id) {
-        Session.set("current_page", 'viewProfile');
+        Session.set("currentPage", 'viewProfile');
         return 'viewProfile';
     },
 
     '/users/:id/edit': function(id) {
-        Session.set("current_page", 'editProfile');
+        Session.set("currentPage", 'editProfile');
         return 'editProfile';
     },
+
+    '/dashboard': function() {
+        Session.set("currentPage", 'dashboard');   
+        return 'dashboard'
+    },
+
+    '/manage': function() {
+        Session.set("currentPage", 'manage');   
+        Session.set("currentTab", 'projects'); 
+        return 'manage'
+    },
+
+    '/manage/clients': function() {
+        Session.set("currentPage", 'manage');   
+        Session.set("currentTab", 'clients');   
+        return 'manage'
+    },
+
+    '/manage/projects': function() {
+        Session.set("currentPage", 'manage');   
+        Session.set("currentTab", 'projects');   
+        return 'manage'
+    },
+
+    '/manage/people': function() {
+        Session.set("currentPage", 'manage');   
+        Session.set("currentTab", 'people');   
+        return 'manage'
+    },
+
+
 
 });
 

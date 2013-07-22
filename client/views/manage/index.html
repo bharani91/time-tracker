@@ -1,0 +1,23 @@
+<template name="manage">
+	<div class="tabbable tabs-left">
+		<ul class="nav nav-tabs">
+			<li class="{{ InnerTabActive 'projects'}}"><a href="/manage/projects">Projects</a></li>
+			<li class="{{ InnerTabActive 'clients'}}"><a href="/manage/clients">Clients</a></li>
+			<li class="{{ InnerTabActive 'people'}}" ><a href="/manage/people">People</a></li>
+		</ul>
+
+		<div class="tab-content">
+			<div class="tab-pane {{ InnerTabActive 'projects'}}" id="projects">
+				{{> projects}}
+			</div>
+
+			<div class="tab-pane {{ InnerTabActive 'clients'}}" id="clients">
+				{{> clients}}
+			</div>
+
+			<div class="tab-pane {{ InnerTabActive 'people'}}" id="people">
+				{{> people}}
+			</div>
+		</div>
+	</div>
+</template>
