@@ -41,10 +41,19 @@
 <template name="editPerson">
 	
 		<td class="form_wrap">
-
+			
 			<form class="editForm form-horizontal">
 				<div class="control-group">
-				<label class="control-label">First Name</label>
+					<label class="control-label">Username</label>
+					<div class="controls">
+						<input type="text" class="input-block-level username" value="{{username}}" placeholder="Username">
+					</div>
+				</div>
+
+				{{#with profile}}
+
+				<div class="control-group">
+					<label class="control-label">First Name</label>
 					<div class="controls">
 						<input type="text" class="input-block-level firstName" value="{{firstName}}" placeholder="First Name">
 					</div>
@@ -58,36 +67,24 @@
 				</div>
 
 				<div class="control-group">
-				<label class="control-label">Email</label>
+					<label class="control-label">Role</label>
 					<div class="controls">
-						<input type="text" class="input-block-level email" value="{{email}}" placeholder="Email">
-					</div>
-				</div>
-
-
-				<div class="control-group">
-				<label class="control-label">Department</label>
-					<div class="controls">
-						<input type="text" class="input-block-level department" value="{{department}}" placeholder="Department">
-					</div>
-				</div>
-
-				<div class="control-group">
-				<label class="control-label">Role</label>
-					<div class="controls">
-						<select name="role" class="input-block-level role">
-							<option value="user">Regular User</option>
-							<option value="admin">Admin</option>
+					<select name="role" class="input-block-level role">
+							<option {{selectedRole "employee"}} value="employee">Employee</option>
+							<option {{selectedRole "admin"}}value="admin">Admin</option>
 						</select>
 					</div>
 				</div>
+
 
 				<div class="control-group">
 					<div class="controls">
 						<button class="btn btn-medium btn-success done-editing pull-right"><i class="icon-edit"></i>Update</button>
 					</div>
 				</div>
+				{{/with}}
 			</form>
+			
 			
 		</td>
 
@@ -106,9 +103,9 @@
 <template name="viewPerson">
 	<td>
 		<h3>
-			{{firstName}} {{lastName}}
+			{{profile.firstName}} {{profile.lastName}}
 			<small class="label">
-				{{role}}
+				{{profile.role}}
 			</small>
 		</h3>
 	</td>

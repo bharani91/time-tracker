@@ -8,7 +8,7 @@ Template.new_client.events({
 		Clients.insert({
 			name: name.value,
 			address: address.value,
-			userId: Meteor.userId()
+			companyId: Session.get("companyId")
 		});
 
 		form.reset();

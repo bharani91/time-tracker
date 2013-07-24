@@ -2,20 +2,14 @@ Template.new_person.events({
 	"submit form": function(e, t) {
 		e.preventDefault();
 		var form = t.find("form"),
+			username = t.find(".username"),
+			email = t.find(".email"),
 			firstName = t.find(".firstName"),
 			lastName = t.find(".lastName"),
-			email = t.find(".email"),
-			department = t.find(".department"),
 			role = t.find(".role");
 
-		People.insert({
-			firstName: firstName.value,
-			lastName: lastName.value,
-			email: email.value,
-			department: department.value,
-			role: role.value,
-			userId: Meteor.userId()
-		});
+
+		Meteor.apply("addUser", [username.value, email.value, firstName.value,lastName.value, role.value, Session.get("companyId")]);
 
 		form.reset();
 

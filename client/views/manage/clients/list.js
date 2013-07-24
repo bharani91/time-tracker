@@ -1,5 +1,5 @@
 Template.clients.clients = function() {
-	return Clients.find({userId: Meteor.userId()});
+	return Clients.find({companyId: Session.get("companyId")});
 };
 
 Template.clients.editingClient = function() {

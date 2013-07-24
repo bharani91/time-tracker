@@ -11,6 +11,7 @@ Meteor.Router.add({
 	},
 
 	'/logout': function() {
+		Session.set("companyId", "");
 		Meteor.logout(function(error) {
 			if(error) {
 				alert("Could not logout!")

@@ -14,17 +14,9 @@ Validation.createUserAccount = function () {
 	var firstName = $("#firstName").val();	
 	var lastName = $("#lastName").val();	
 
-	Accounts.createUser({
-		username: username, 
-		password: password, 
-		email: email, 
-		profile: {
-			role: "admin",
-			firstName: firstName, 
-			lastName: lastName,
-			companyName: companyName
-		}
-	}, function(error) {
+	Company.insert({
+		name: companyName
+	}, function(error, _id) {
 		if (error) {
 			//$("#signupForm div .alert").remove();
 			$("#createUser").button('reset');
@@ -35,9 +27,36 @@ Validation.createUserAccount = function () {
 				createUserError = 1;
 			}
 		} else {
-			Meteor.Router.to("/");
+			Accounts.createUser({
+				username: username, 
+				password: password, 
+				email: email, 
+				profile: {
+					role: "admin",
+					firstName: firstName, 
+					lastName: lastName,
+					companyId: _id
+				}
+			}, function(error) {
+				if (error) {
+					//$("#signupForm div .alert").remove();
+					$("#createUser").button('reset');
+					if (createUserError >= 1) {
+						$("#main div.alert:first").fadeOut(100).fadeIn(100);
+					} else {
+						$("form#signupForm").before("<div class='alert alert-error'>" + error.reason + "</div>");
+						createUserError = 1;
+					}
+				} else {
+					Session.set("companyId", _id);
+					Meteor.Router.to("/");
+				}
+			});
+			
 		}
 	});
+
+	
 	
 };
 
