@@ -29,9 +29,7 @@ Meteor.methods({
 	},
 
 	updateUser: function(userId, username, firstName, lastName, role) {
-		console.log(userId, username, firstName, lastName, role);
 
-		
 		Meteor.users.update(userId, {$set: {
 			username: username,
 			profile: {

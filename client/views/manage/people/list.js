@@ -5,7 +5,6 @@
 // });
 
 Handlebars.registerHelper('selectedRole', function (role) {
-    
     return this.role == role ? "selected='true'" : ""
 });
 

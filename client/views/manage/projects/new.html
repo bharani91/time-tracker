@@ -1,0 +1,98 @@
+<template name="new_project">
+
+	<div class="row-fluid manage">
+		<div class="span12">
+			<div class="modal-header row-fluid">
+				<h3  class="pull-left" id="clientModalLabel"><i class="icon-plus-sign"></i>Add A Project
+				</h3>
+
+				<a href="/manage/clients" class="btn pull-right back"><i class="icon-chevron-left"></i>Back</a>
+
+			</div>
+
+			<form class="form-horizontal">
+				<div class="modal-body">
+
+					<div class="control-group">
+						<label for="name" class="control-label">	
+							Client
+						</label>
+						{{#if addingClient }}
+							<div class="controls">
+								<div class="row-fluid">
+									<div class="span8">
+										<input type="text" name="client_name" class="input-block-level client_name" placeholder="Client name">
+									</div>
+									<div class="span2">
+										<button class="btn add-client btn-block btn-primary">Submit</button>
+									</div>
+
+									<div class="span2">
+										<button class="btn hide-client-form btn-block">Cancel</button>
+									</div>
+								</div>
+							</div>
+						{{else}}
+							<div class="controls">
+								<div class="row-fluid">
+									<div class="span10">
+										<select name="client" class="input-block-level client">
+											{{#each clients}}
+												<option {{selectedClient name}} value="{{name}}">{{name}}</option>
+											{{/each}}
+										</select>
+									</div>
+									<div class="span2">
+										<button class="btn show-client-form btn-block">Add Client</button>
+									</div>
+								</div>
+							</div>
+						{{/if}}
+					</div>
+
+					<div class="control-group">
+						<label for="name" class="control-label">	
+							Project Name
+						</label>
+						<div class="controls">
+							<input type="text" name="name" class="input-block-level name" placeholder="Name e.g. Website Redesign">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label for="notes" class="control-label">	
+							Project Notes
+						</label>
+						<div class="controls">
+							<textarea name="notes" id="notes" class="input-block-level notes" rows="4" placeholder="Additional Notes"></textarea>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label for="name" class="control-label">	
+							Team Members
+						</label>
+						<div class="controls">
+							<select multiple name="team" class="input-block-level team">
+								{{#each people}}
+									<option value="{{username}}">{{username}}</option>
+								{{/each}}
+							</select>
+						</div>
+					</div>
+
+
+
+				</div>
+				<div class="modal-footer">
+					<a href="/manage/clients" class="btn back">Cancel</a>
+					<button class="btn btn-primary" type="submit">Save changes</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	
+
+	
+</template>

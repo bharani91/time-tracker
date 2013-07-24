@@ -1,0 +1,156 @@
+<template name="projects">
+	<div class="row-fluid manage_header">
+		<div class="span12">
+			<h3>Manage Projects <a href="/manage/projects/new" role="button" class="btn btn-success btn-medium pull-right"><i class="icon-plus-sign"></i>New Project</a></h3>
+			<hr class="spacer">
+		</div>
+	</div>
+
+
+	<div class="row-fluid manage">
+		<div class="span12">
+			<p class="muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, eos, commodi sunt corporis temporibus beatae earum veniam. Quam, iste, obcaecati aspernatur tempora architecto libero accusamus sit molestias incidunt non facere!</p>
+
+			<table class='table'>
+				<thead>
+					<tr>
+						<td colspan="3">
+							Project List
+						</td>
+					</tr>
+				</thead>
+
+				{{#each projects}}
+				<tr>
+					{{#if editingProject}}
+						{{> editProject}}
+					{{else}}
+						{{> viewProject }}
+					{{/if}}
+				</tr>
+				{{/each}}
+				
+
+			</table>
+		</div>
+	</div>
+
+</template>
+
+
+<template name="editProject">
+	
+		<td class="form_wrap">
+
+			<form class="editForm form-horizontal">
+				<div class="control-group">
+					<label for="name" class="control-label">	
+						Client
+					</label>
+					{{#if addingClient }}
+						<div class="controls">
+							<div class="row-fluid">
+								<div class="span6">
+									<input type="text" name="client_name" class="input-block-level client_name" placeholder="Client name">
+								</div>
+								<div class="span3">
+									<button class="btn add-client btn-block btn-primary">Submit</button>
+								</div>
+
+								<div class="span3">
+									<button class="btn hide-client-form btn-block">Cancel</button>
+								</div>
+							</div>
+						</div>
+					{{else}}
+						<div class="controls">
+							<div class="row-fluid">
+								<div class="span8">
+									<select name="client" class="input-block-level client">
+										{{#each clients}}
+											<option {{selectedClient name}} value="{{name}}">{{name}}</option>
+										{{/each}}
+									</select>
+								</div>
+								<div class="span4">
+									<button class="btn show-client-form btn-block">Add Client</button>
+								</div>
+							</div>
+						</div>
+					{{/if}}
+				</div>
+
+				<div class="control-group">
+					<label for="name" class="control-label">	
+						Project Name
+					</label>
+					<div class="controls">
+						<input type="text" name="name" class="input-block-level name" value="{{name}}" placeholder="Name e.g. Website Redesign">
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label for="notes" class="control-label">	
+						Project Notes
+					</label>
+					<div class="controls">
+						<textarea name="notes" id="notes" class="input-block-level notes" rows="4"  placeholder="Additional Notes">{{notes}}</textarea>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label for="name" class="control-label">	
+						Team Members
+					</label>
+					<div class="controls">
+						<select multiple name="team" value="{{team}}" class="input-block-level team">
+							{{#each people}}
+								<option value="{{username}}">{{username}}</option>
+							{{/each}}
+						</select>
+					</div>
+				</div>
+
+				
+				<div class="control-group">
+					<div class="controls">
+						<button class="btn btn-medium btn-success done-editing pull-right"><i class="icon-edit"></i>Update</button>
+					</div>
+				</div>
+				
+			</form>
+			
+		</td>
+
+		<td>
+			<div class="btn-group pull-right">
+				<button class="btn btn-small revert"><i class="icon-remove-sign"></i>Revert</button>
+				<button class="btn btn-small btn-danger"><i class="icon-remove-sign"></i>Delete</button>
+			</div>
+		</td>
+
+	
+	
+</template>
+
+
+<template name="viewProject">
+	<td>
+		<h3>
+			{{name}}
+			<small class="muted">
+				<strong>Client:</strong> {{client}},
+
+				<strong>Team:</strong> {{memberCount}} members
+				
+			</small>
+		</h3>
+	</td>
+
+	<td>
+		<div class="btn-group pull-right">
+			<button class="btn btn-small edit"><i class="icon-edit"></i>Edit</button>
+			<button class="btn btn-small btn-danger delete"><i class="icon-remove-sign"></i>Delete</button>
+		</div>
+	</td>
+</template>

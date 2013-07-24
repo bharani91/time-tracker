@@ -4,7 +4,8 @@
     "basePackages": {
       "router": {},
       "font-awesome": {},
-      "scss": {}
+      "scss": {},
+      "chosen-package": {}
     },
     "packages": {
       "router": {
@@ -21,6 +22,11 @@
         "git": "https://github.com/fourseven/meteor-scss.git",
         "tag": "v0.5.3",
         "commit": "d3438b652f90ff2b418ac143fc3a746be2772e4b"
+      },
+      "chosen-package": {
+        "git": "https://github.com/Ore4444/chosen-package.git",
+        "tag": "v0.11.1",
+        "commit": "8d1a748bafaae8b6005a979ab7261ac14ff38052"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

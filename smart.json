@@ -2,6 +2,7 @@
   "packages": {
     "router": {},
     "font-awesome": {},
-    "scss": {}
+    "scss": {},
+    "chosen-package": {}
   }
 }

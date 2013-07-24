@@ -5,6 +5,8 @@ Meteor.Router.add({
 		return 'manage'
 	},
 
+
+
 	'/manage/clients': function() {
 		Session.set("currentPage", 'manage');   
 		Session.set("currentTab", 'clients');   
@@ -18,10 +20,17 @@ Meteor.Router.add({
 	},
 
 
+
+
 	'/manage/projects': function() {
 		Session.set("currentPage", 'manage');   
 		Session.set("currentTab", 'projects');   
 		return 'manage'
+	},
+	'/manage/projects/new': function() {
+		Session.set("currentPage", 'manage');   
+		Session.set("currentTab", 'projects');   
+		return 'new_project'
 	},
 
 
