@@ -54,16 +54,31 @@ h3 {
 }
 
 .btn {
+    outline: none !important;
     i {
-        font-size: 22px;
+        font-size: 12px;
         font-weight: bold;
-        position: relative;
-        top: 2px;
+    }
+}
+
+
+.modal {
+    form {
+        .control-group {
+            label.control-label {
+                text-align: left;
+                font-weight: bold;
+                width: 120px;
+            }
+
+            .controls {
+                margin-left: 140px;
+            }
+        }
     }
 }
 
 /*-----  End of SHARED STYLES  ------*/
-
 
 
 
@@ -123,7 +138,7 @@ h3 {
         tr {
             &:hover {
                 background: lighten(#eee, 2%);
-                cursor: pointer;
+                // cursor: pointer;
             }
             td {
                 padding: 20px 10px;
@@ -137,9 +152,14 @@ h3 {
                     display: block;
                 }
             }
+            
 
             td:first-child {
                 width: 40%;
+            }
+
+            td.form_wrap {
+                width: 70%;
             }
 
             td:last-child {

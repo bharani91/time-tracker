@@ -8,3 +8,4 @@ Template.manage.helpers({
 		return Session.get("currentTab") || 'clients' ;
 	},
 });
+

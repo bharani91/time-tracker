@@ -3,5 +3,5 @@ Template.editProfile.user = function() {
 };
 
 Template.editProfile.rendered = function() {
-    App.myValidation (App.editProfileRules, App.editProfileMessages, App.editProfileForm, App.messagePlacement, App.editProfileHandleSubmit);
+    Validation.myValidation (Validation.editProfileRules, Validation.editProfileMessages, Validation.editProfileForm, Validation.messagePlacement, Validation.editProfileHandleSubmit);
 };

@@ -1,0 +1,95 @@
+<template name="clients">
+	<div class="row-fluid manage_header">
+		<div class="span12">
+			<h3>Manage Clients <a href="/manage/clients/new" role="button" class="btn btn-success btn-medium pull-right"><i class="icon-plus-sign"></i>New Client</a></h3>
+			<hr class="spacer">
+		</div>
+	</div>
+
+
+	<div class="row-fluid manage">
+		<div class="span12">
+			<p class="muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, eos, commodi sunt corporis temporibus beatae earum veniam. Quam, iste, obcaecati aspernatur tempora architecto libero accusamus sit molestias incidunt non facere!</p>
+
+			<table class='table'>
+				<thead>
+					<tr>
+						<td colspan="3">
+							Client List
+						</td>
+					</tr>
+				</thead>
+
+				{{#each clients}}
+				<tr>
+					{{#if editingClient}}
+						{{> editClient}}
+					{{else}}
+						{{> viewClient }}
+					{{/if}}
+				</tr>
+				{{/each}}
+				
+
+			</table>
+		</div>
+	</div>
+
+</template>
+
+
+<template name="editClient">
+	
+		<td class="form_wrap">
+
+			<form class="editForm form-horizontal">
+				<div class="control-group">
+				<label class="control-label">Name</label>
+					<div class="controls">
+						<input type="text" class="input-block-level name" value="{{name}}" placeholder="Name">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Address</label>
+					<div class="controls">
+						<textarea class="input-block-level address" placeholder="Address">{{address}}</textarea>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
+						<button class="btn btn-medium btn-success done-editing pull-right"><i class="icon-edit"></i>Update</button>
+					</div>
+				</div>
+			</form>
+			
+		</td>
+
+		<td>
+			<div class="btn-group pull-right">
+				<button class="btn btn-small revert"><i class="icon-remove-sign"></i>Revert</button>
+				<button class="btn btn-small btn-danger"><i class="icon-remove-sign"></i>Delete</button>
+			</div>
+		</td>
+
+	
+	
+</template>
+
+
+<template name="viewClient">
+	<td>
+		<h3>
+			{{name}}
+			<small class="muted">
+				{{address}}
+			</small>
+		</h3>
+	</td>
+
+	<td>
+		<div class="btn-group pull-right">
+			<button class="btn btn-small edit"><i class="icon-edit"></i>Edit</button>
+			<button class="btn btn-small btn-danger delete"><i class="icon-remove-sign"></i>Delete</button>
+		</div>
+	</td>
+</template>
