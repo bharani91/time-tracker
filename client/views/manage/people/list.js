@@ -10,7 +10,7 @@ Handlebars.registerHelper('selectedRole', function (role) {
 
 
 Template.people.people = function() {
-	return Meteor.users.find({companyId: Session.get("companyId")});
+	return Meteor.users.find({"profile.companyId": Session.get("companyId")});
 };
 
 Template.people.editingPerson = function() {

@@ -20,6 +20,8 @@ Validation.login = function () {
 
 			$("#login").button('reset');
 		} else {
+			var companyId = Meteor.user().profile.companyId;
+			Session.set("companyId", companyId);
 			Meteor.Router.to("/");
 		}
 	});

@@ -4,20 +4,18 @@ Meteor.methods({
 		var newUserId = Accounts.createUser({
 			username: username, 
 			email: email,
+			password: "dummy",
 			profile: {
 				role: role,
 				firstName: firstName,
-				lastName: lastName
+				lastName: lastName,
+				companyId: companyId
 			}
 		});
 		
 		if(email) {
 			Accounts.sendEnrollmentEmail(newUserId);
 		}
-
-		Meteor.users.update(newUserId, {$set: {
-			companyId: companyId
-		}});
 		
 		return newUserId;
 	},

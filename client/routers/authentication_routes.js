@@ -33,6 +33,12 @@ Meteor.Router.add({
 		return 'password_update';
 	},
 
+	'/enroll-account/:token': function(token) {
+		Session.set("resetPassword", token);
+		Session.set("currentPage", 'password_update');
+		return 'password_update';
+	},
+
 	'/users/:id': function(id) {
 		Session.set("currentPage", 'viewProfile');
 		return 'viewProfile';
