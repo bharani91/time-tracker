@@ -35,7 +35,6 @@ Template.projects.events({
 			companyId: Session.get("companyId")
 		});
 
-		form.reset();
 		Session.set("editingProject", false);
 	},
 
@@ -45,45 +44,9 @@ Template.projects.events({
 });
 
 
-
-
-// Duplication - refactor
-Template.editProject.clients = function() {
-	return Clients.find({companyId: Session.get("companyId")});
-}
-
-Template.editProject.people = function() {
-	return Meteor.users.find({companyId: Session.get("companyId")});
-}
-
-Template.editProject.addingClient = function() {
-	return Session.get("addingClient");
-}
-
-Template.editProject.events({
-	"click .show-client-form": function(e, t) {
-		Session.set("addingClient", true);
-	},
-
-	"click .hide-client-form": function(e, t) {
-		Session.set("addingClient", false);
-	},
-
-	"click .add-client": function(e, t) {
-		e.preventDefault();
-		var client_name = t.find(".client_name");
-
-		Clients.insert({
-			name: client_name.value,
-			companyId: Session.get("companyId")
-		})
-		Session.set("selectedClient", client_name.value);
-		Session.set("addingClient", false);
-	}
-});
-
 Template.editProject.rendered = function() {
 	$(".team").chosen();
 	$(".team").val(this.data.team).trigger("liszt:updated");
 
+	$(".notes").val(this.data.notes);
 }
