@@ -85,11 +85,6 @@ h3 {
     }
 }
 
-
-.modal-body {
-    max-height: 1000px !important;
-    min-height: 300px;
-}
 /*-----  End of SHARED STYLES  ------*/
 
 
@@ -195,5 +190,69 @@ h3 {
 
 
 
+/*=============================
+=            TIMER            =
+=============================*/
+.timer_header {
+    .buttons {
+        margin-top: 15px;
+        .btn-group {
+            margin-right: 20px;
+        }
+    }
+
+    h2 {
+        font-weight: normal;
+        color: gray;
+    }
+
+    .add_timer {
+        margin-top: 15px;
+    }
+}
+
+.add_timer {
+    .btn-icon {
+        position: relative;
+        top: 20px;
+    }
+
+    .new_project {
+        .btn-icon {
+            top: 25px;
+        }
+    }
+
+    .time {
+        height: 50px;
+        line-height: 50px;
+        font-size: 18px;
+    }
+
+    .row-fluid {
+        margin-bottom: 10px;
+    }
+
+    .submit {
+        margin-top: 20px;
+    }
+}
 
 
+/*-----  End of TIMER  ------*/
+
+
+
+
+
+
+
+#projectModal {
+    .chzn-container {
+        width: 100% !important;
+    }
+
+    .modal-body {
+        height: 500px;
+    }
+}

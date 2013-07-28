@@ -3,7 +3,7 @@ Template.project_form.clients = function() {
 }
 
 Template.project_form.people = function() {
-	return Meteor.users.find({companyId: Session.get("companyId")});
+	return Meteor.users.find({"profile.companyId": Session.get("companyId")});
 }
 
 Template.project_form.addingClient = function() {

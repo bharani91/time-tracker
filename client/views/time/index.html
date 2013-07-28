@@ -1,0 +1,37 @@
+<template name="timer">
+	<header class="row-fluid timer_header">
+		<div class="span7">
+			<h2>{{day}}, {{date}}</h2>
+		</div>
+		
+		<div class="buttons span5">
+			<a href="#" class="btn calendar  pull-right"><i class="icon-calendar"></i></a>
+
+			<div class="btn-group  pull-right">
+				<button class="btn previous_day"><i class="icon-chevron-left"></i></button>
+				<button class="btn today">Today</button>
+				<button class="btn next_day"><i class="icon-chevron-right"></i></button>
+			</div>
+		</div>
+	</header>
+
+
+	<div class="section timer_content">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="well">
+					
+					<div class="row-fluid">
+						<div class="span4 add_timer">
+							{{> timer_form }}
+						</div>
+
+						<div class="span8 timers">
+							{{> timer_list }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
