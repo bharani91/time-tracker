@@ -1,84 +1,40 @@
 <template name="timer_form">
-	<form class="add_timer_form form-horizontal">
-		<fieldset>
-			<legend><small>Add New Timer for {{date}}</small></legend>
-
-
-			{{#if addingProject }}
-			<div class="row-fluid new_project">
-				<div class="span8">
-					<label>Project Name</label>
-					<input type="text" name="project_name" class="input-block-level project_name project_name" placeholder="Project name">
-				</div>
-
-				<div class="span2">
-					<button class="btn btn-icon add-project btn-block btn-primary"><i class="icon-ok"></i></button>
-				</div>
-
-				<div class="span2">
-					<button class="btn btn-icon hide-project-form btn-block"><i class="icon-remove"></i></button>
-				</div>
-			</div>
-			{{else}}
-
-			<div class="row-fluid">
-				<div class="span10">
-					<label>Project</label>
-					<select name="project" class="input-block-level project">
-						{{#each projects}}
-						<option value="{{_id}}">{{name}}</option>
-						{{/each}}
-					</select>
-				</div>
-				<div class="span2">
-					<a href="#projectModal" role="button" data-toggle="modal" class="btn btn-icon btn-primary btn-block"><i class="icon-plus-sign"></i></a>		
-				</div>
-			</div>
-			{{/if}}
-
-			<div class="row-fluid">
-				<div class="span12">
-					<label>Task</label>
-					<input type="text" class="input-block-level task" placeholder="Task Name">
-				</div>
-			</div>
-
-			<div class="row-fluid">
-				<div class="span9">
-					<label>Notes</label>
-					<textarea name="notes" class="notes input-block-level"></textarea>
-				</div>
-
-				<div class="span3">
-					<label>Time</label>
-					<input type="text" class="time input-block-level" placeholder="00:00" value="00:00">
-				</div>
-			</div>
-
-			<div class="row-fluid submit">
-				<input type="submit" class="btn btn-success btn-large btn-block" value="Add Timer">
-			</div>
-		</fieldset>
-
-	</form>
-
-
-	{{> projectModal}}
-</template>
-
-
-<template name="projectModal">
-	<div id="projectModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3 id="myModalLabel">Add a Project</h3>
+	{{#unless addingProject}}
+	<div class="row-fluid">	
+		<div class="span10">
+			<label>Project</label>
+			<select name="project" class="input-block-level project">
+				{{#each projects}}
+				<option value="{{_id}}">{{name}}</option>
+				{{/each}}
+			</select>
 		</div>
-		<div class="modal-body">
-			{{> project_form}}
+		<div class="span2">
+			<a href="#projectModal" role="button" data-toggle="modal" class="btn btn-icon btn-primary btn-block"><i class="icon-plus-sign"></i></a>		
 		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-			<button class="btn submit-btn btn-primary" type="submit">Save changes</button>
+	</div>
+	{{/unless}}
+
+	<div class="row-fluid">
+		<div class="span12">
+			<label>Task</label>
+			<input type="text" class="input-block-level task" placeholder="Task Name">
 		</div>
+	</div>
+
+	<div class="row-fluid">
+		<div class="span9">
+			<label>Notes</label>
+			<textarea name="notes" class="notes input-block-level"></textarea>
+		</div>
+
+		<div class="span3">
+			<label>Time</label>
+			<input type="text" class="time input-block-level" placeholder="00:00" value="00:00">
+		</div>
+	</div>
+
+	<div class="row-fluid submit">
+		<input type="submit" class="btn btn-success btn-large btn-block" value="Add Timer">
 	</div>
 </template>

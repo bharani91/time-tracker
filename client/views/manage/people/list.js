@@ -10,7 +10,6 @@ Handlebars.registerHelper('selectedRole', function (role) {
 
 
 Template.people.people = function() {
-	console.log(Session.get("companyId"));
 	return Meteor.users.find({"profile.companyId": Session.get("companyId")});
 };
 
@@ -43,6 +42,7 @@ Template.people.events({
 	},
 
 	"click .delete": function(e, t) {
-		Meteor.call("removeUser", this._id);
+		var resp = confirm("Are you sure?");
+		if(resp) Meteor.call("removeUser", this._id);
 	}
 })

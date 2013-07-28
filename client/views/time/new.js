@@ -68,6 +68,31 @@ Template.timer_form.rendered = function() {
 	$(".project").chosen();
 }
 
+
+Template.projectModal.events({
+	"submit form, click .submit-btn": function(e, t) {
+		e.preventDefault();
+		var form = t.find("form"),
+			name = t.find(".name").value,
+			notes = t.find(".notes").value,
+			client = t.find(".client").value,
+			team = $(".team").val();
+
+
+		Projects.insert({
+			client: client,
+			name: name,
+			notes: notes,
+			team: team,
+			companyId: Session.get("companyId")
+		});
+
+		form.reset();
+		$(t.find(".btn-close")).trigger("click");
+
+	}
+})
+
 Template.projectModal.rendered = function() {
 	$(".team").chosen();
 }

@@ -39,7 +39,8 @@ Template.projects.events({
 	},
 
 	"click .delete": function(e, t) {
-		Projects.remove({_id: this._id});
+		var resp = confirm("Are you sure?");
+		if(resp) Projects.remove({_id: this._id});
 	}
 });
 

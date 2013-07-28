@@ -39,6 +39,7 @@ Template.timer_item.events({
 
 		Session.set("isTracking", undefined);
 		Session.set("currentTime", undefined);
+		$(window).off("beforeunload");
 	},
 
 	"click .remove-timer-item": function(e, t) {
