@@ -12,6 +12,7 @@ Template.new_project.events({
 			client = t.find(".client").value,
 			team = $(".team").val();
 
+
 		Projects.insert({
 			client: client,
 			name: name,

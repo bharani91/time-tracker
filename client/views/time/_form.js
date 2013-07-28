@@ -49,16 +49,17 @@ Template.timer_form.events({
 			notes = t.find(".notes"),
 			time = t.find(".time");
 
-		var project = Projects.find({_id: project.val()}),
-			client = Clients.find({_id: project.clientId});
+		var project = Projects.findOne({_id: projectId.val()}),
+			client = Clients.findOne({_id: project.clientId});
 
 		Timers.insert({
-			projectId: project._id,
-			clientId: client._id,
-			userId: Meteor.userId(),
+			project: project,
+			client: client,
+			user: Meteor.user(),
 			task: task.value,
 			notes: notes.value,
-			time: time.value
+			time: time.value,
+			date: Session.get("date")
 		})
 	}
 });

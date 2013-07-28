@@ -1,3 +1,44 @@
 <template name="timer_list">
-	
+	<ul class="unstyled timer_list">
+		{{#each timers}}
+		{{> timer_item}}
+		{{/each}}
+	</ul>
+</template>
+
+<template name="timer_item">
+	<li class="well">
+		<div class="row-fluid">
+			<div class="span8">
+				<h3>
+					{{task}}
+				</h3>
+				<h5>
+					{{project.name}}
+					<small>
+						{{client.name}}
+						<span class="label">
+							{{user.username}}
+						</span>
+					</small>
+				</h5>
+
+			</div>
+			<div class="span4 time">
+
+				<h3>
+					
+					{{#if isTracking }}
+						<div class="clock">{{currentTime}}</div>
+						<div class="btn btn-danger stop"><i class="icon-time"></i>Stop</div>
+					{{else}}
+						<div>{{time}}</div>
+						<div class="btn btn-primary start"><i class="icon-time"></i>Start</div>
+					{{/if}}
+				</h3>
+
+				
+			</div>
+		</div>
+	</li>
 </template>
