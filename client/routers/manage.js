@@ -1,51 +1,51 @@
 Meteor.Router.add({
-	'/manage': function() {
+	'/manage': { as: 'manage', to: function() {
 		Session.set("currentPage", 'manage');   
 		Session.set("currentTab", 'projects'); 
 		return 'manage'
-	},
+	}},
 
 
 
-	'/manage/clients': function() {
+	'/manage/clients': { as: 'manage', to: function() {
 		Session.set("currentPage", 'manage');   
 		Session.set("currentTab", 'clients');   
 		return 'manage'
-	},
+	}},
 
-	'/manage/clients/new': function() {
+	'/manage/clients/new': { as: 'manage', to: function() {
 		Session.set("currentPage", 'manage');   
 		Session.set("currentTab", 'clients');   
 		return 'new_client'
-	},
+	}},
 
 
 
 
-	'/manage/projects': function() {
+	'/manage/projects': { as: 'manage', to: function() {
 		Session.set("currentPage", 'manage');   
 		Session.set("currentTab", 'projects');   
 		return 'manage'
-	},
-	'/manage/projects/new': function() {
+	}},
+	'/manage/projects/new': { as: 'manage', to: function() {
 		Session.set("currentPage", 'manage');   
 		Session.set("currentTab", 'projects');   
 		return 'new_project'
-	},
+	}},
 
 
 
 
-	'/manage/people': function() {
+	'/manage/people': { as: 'manage', to: function() {
 		Session.set("currentPage", 'manage');   
 		Session.set("currentTab", 'people');   
 		return 'manage'
-	},
+	}},
 
-	'/manage/people/new': function() {
+	'/manage/people/new': { as: 'manage', to: function() {
 		Session.set("currentPage", 'manage');   
 		Session.set("currentTab", 'people');   
 		return 'new_person'
-	},
+	}},
 
 })

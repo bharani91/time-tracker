@@ -92,7 +92,7 @@
         function updateTimerDisplay()
         {
             if(hrsNum > 0) settings.showHours = true;
-            if(settings.showHours) $(element).html(hrsStr + ":" + minsStr + ":" + secsStr);
+            if(settings.showHours) Session.set("currentTime", (hrsStr + ":" +minsStr + ":" + secsStr)) // $(element).html(hrsStr + ":" + minsStr + ":" + secsStr);
             else Session.set("currentTime", (minsStr + ":" + secsStr)); // else $(element).html(minsStr + ":" + secsStr);
         }
         

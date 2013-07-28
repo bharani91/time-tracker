@@ -30,6 +30,7 @@ Template.clients.events({
 	},
 
 	"click .delete": function(e, t) {
-		Clients.remove({_id: this._id});
+		var resp = confirm("Are you sure?");
+		if(resp) Clients.remove({_id: this._id});
 	}
 })

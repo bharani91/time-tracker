@@ -1,7 +1,7 @@
 Template.recover_email.rendered = function() {
     
         // password reset email form
-        App.myValidation (App.recoverEmailRules, App.recoverEmailMessages, App.recoverEmailForm, App.messagePlacement, App.recoverEmailHandleSubmit);    
+        Validation.myValidation (Validation.recoverEmailRules, Validation.recoverEmailMessages, Validation.recoverEmailForm, Validation.messagePlacement, Validation.recoverEmailHandleSubmit);    
     
     
 };

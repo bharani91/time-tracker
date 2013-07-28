@@ -1,4 +1,4 @@
-Template.timer.helpers({
+Template.timer_header.helpers({
 	day: function() {
 		return Session.get("day");
 	},
@@ -17,4 +17,8 @@ Template.timer.rendered = function() {
 			Session.set("isTracking", undefined);
 		});
 	}
+}
+
+Template.timer_header.rendered = function() {
+	$('.calendar').datepicker();
 }

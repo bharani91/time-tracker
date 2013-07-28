@@ -5,7 +5,8 @@
       "router": {},
       "font-awesome": {},
       "scss": {},
-      "chosen-package": {}
+      "chosen-package": {},
+      "bootstrap-datepicker": {}
     },
     "packages": {
       "router": {
@@ -27,6 +28,11 @@
         "git": "https://github.com/Ore4444/chosen-package.git",
         "tag": "v0.11.1",
         "commit": "8d1a748bafaae8b6005a979ab7261ac14ff38052"
+      },
+      "bootstrap-datepicker": {
+        "git": "https://github.com/acidsound/bootstrap-datepicker.git",
+        "tag": "v0.5.1",
+        "commit": "578d0bad1b5b5120c1abc333e449b8d0256969b4"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

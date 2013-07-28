@@ -196,9 +196,6 @@ h3 {
 .timer_header {
     .buttons {
         margin-top: 15px;
-        .btn-group {
-            margin-right: 20px;
-        }
     }
 
     h2 {
@@ -240,12 +237,27 @@ h3 {
 
 .timers {
     .timer_list {
-        .time {
-            margin-top: 20px;
-        }
+        
 
-        .well.current {
+        .well {
+            position: relative;
             background: #fff;
+            
+            .clock, .time_wrap {
+                display: inline;
+            }
+
+            .actions {
+                margin-top: 15px;
+                .btn {
+                    width: 100%;
+                    margin-bottom: 10px;
+                    font-size: 10px;
+                    i {
+                        padding-right: 5px;
+                    }
+                }
+            }
         }
     }
 }

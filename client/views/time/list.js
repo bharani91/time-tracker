@@ -39,5 +39,10 @@ Template.timer_item.events({
 
 		Session.set("isTracking", undefined);
 		Session.set("currentTime", undefined);
+	},
+
+	"click .remove-timer-item": function(e, t) {
+		var response = confirm("Are you sure?")
+		if(response) Timers.remove({_id: t.data._id});
 	}
 })

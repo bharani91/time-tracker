@@ -22,17 +22,6 @@ Meteor.Router.add({
 		});
 	}},
 
-	'/reset-password': {as: "reset_password", to: function() {
-		Session.set("currentPage", 'recover_email');
-		return 'recover_email';
-	}},
-
-	'/reset-password/:token': {as: "reset_password_token", to: function(token) {
-		Session.set("resetPassword", token);
-		Session.set("currentPage", 'password_update');
-		return 'password_update';
-	}},
-
 	'/enroll-account/:token': function(token) {
 		Session.set("resetPassword", token);
 		Session.set("currentPage", 'password_update');
@@ -53,6 +42,18 @@ Meteor.Router.add({
 		Session.set("currentPage", 'dashboard');   
 		return 'dashboard'
 	},
+
+	'/reset-password': {as: "reset_password", to: function() {
+		Session.set("currentPage", 'recover_email');
+		return 'recover_email';
+	}},
+
+	'/reset-password/:token': {as: "reset_password_token", to: function(token) {
+		Session.set("resetPassword", token);
+		Session.set("currentPage", 'password_update');
+		return 'password_update';
+	}},
+
 });
 
 
@@ -60,6 +61,7 @@ Meteor.Router.filters({
 	'hasCompanyId': function(page) {
 		if(!Meteor.user()) {
 			Meteor.Router.to("/login");
+			return "login";
 		} else if(!Session.get("companyId")) {
 			Session.set("companyId", Meteor.user().profile.companyId);
 		} else {
@@ -68,5 +70,5 @@ Meteor.Router.filters({
 	}
 });
 
-Meteor.Router.filter('hasCompanyId', { except: ["home", "static_pages", "login", "logout", "reset_password", "reset_password_token", "signup"]});
+Meteor.Router.filter('hasCompanyId', { only: ["manage", "timer"] });
 

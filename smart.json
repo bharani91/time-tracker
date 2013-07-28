@@ -3,6 +3,7 @@
     "router": {},
     "font-awesome": {},
     "scss": {},
-    "chosen-package": {}
+    "chosen-package": {},
+    "bootstrap-datepicker": {}
   }
 }
