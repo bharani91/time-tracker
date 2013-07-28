@@ -1,11 +1,11 @@
-meteor-router-auth
+Time Tracker
 ==================
 
-MeteorJS + Routes + User accounts + Twitter Bootstrap
+A simple time tracking application built with Meteor.js and Twitter Bootstrap. 
 
 --------------
 
-### [Demo](http://router-auth.meteor.com/)
+### WIP.
 
 --------------
 
