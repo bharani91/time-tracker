@@ -34,7 +34,7 @@
     {
         var element = this,
             settings = $.extend({ showHours: false }, options )
-            seconds = Session.get("currentTime");
+            seconds = timeToSeconds(Session.get("currentTime"));
         
         if (seconds !== undefined)
         {

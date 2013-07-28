@@ -20,9 +20,7 @@ Template.timer_item.events({
 		}
 
 
-		var seconds = timeToSeconds(t.data.time);
-
-		Session.set("currentTime", seconds);
+		Session.set("currentTime", t.data.time);
 		$(t.find(".clock")).timer("start");
 		Session.set("isTracking", t.data._id);
 		
@@ -32,7 +30,13 @@ Template.timer_item.events({
 		e.preventDefault();
 		$(t.find(".clock")).timer("pause");
 
-		Timers.update({_id: t.data._id}, { $set: { time: Session.get("currentTime") }});
+		Timers.update({_id: t.data._id}, { 
+			$set: { 
+				time: Session.get("currentTime") 
+			}
+		});
+
+
 		Session.set("isTracking", undefined);
 		Session.set("currentTime", undefined);
 	}
